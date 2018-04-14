@@ -6,7 +6,8 @@ import './Select.css';
 
 export function Select({
   className, label, selectedValue, options, isOpen,
-  onKeyDown, toggleList, focusIndex
+  onKeyDown, onChooseOption, toggleList, focusIndex,
+  closeList
 }) {
 
   return (
@@ -25,7 +26,7 @@ export function Select({
             id={option.id} 
             name={option.name}
             shouldFocus={focusIndex === option.id}
-            onClick={() => this.props.onChooseOption(option.name)}/>
+            onMouseDown={() => {onChooseOption(option.name); closeList()}} />
         ))}
       </List>
       <svg className='select__arrow' width='10' height='5' viewBox='0 0 10 5'>
