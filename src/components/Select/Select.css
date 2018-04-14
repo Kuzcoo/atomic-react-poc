@@ -1,0 +1,41 @@
+.select {
+  position: relative;
+  max-width: 300px;
+}
+
+.select__toggle {
+  padding: 0.5em;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  font-size: 1rem;
+  text-align: left;
+  background-color: transparent;
+}
+
+.select__arrow {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  transition: transform 0.1s ease-in-out;
+}
+
+.select__toggle:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.select__list {
+  display: none;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+.select.is-open .select__list {
+  display: block;
+}
+
+.select.is-open .select__arrow {
+  transform: rotate(180deg);
+}
