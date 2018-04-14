@@ -18,7 +18,10 @@ export function TextField({
         value={value} 
         onChange={onChange} 
         {...props} />
-      <Label elementId={elementId} value={label} />
+      <Label 
+        elementId={elementId} 
+        value={label} 
+        className={value === '' ? '' : 'is-active'}/>
     </div>
   );
 }

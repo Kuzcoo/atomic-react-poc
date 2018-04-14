@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Label} from '../Label/Label';
 import {List} from '../List/List';
 import {ListItem} from '../ListItem/ListItem';
 import './Select.css';
@@ -12,9 +13,7 @@ export function Select({
     <div 
       onKeyDown={onKeyDown}
       className={'select' + ' ' + className + (isOpen ? ' is-open' : '')}>
-      <label className='select__label'>
-        {label}
-      </label>
+      <Label value={label}  className='is-active' />
       <button 
         className='select__toggle'
         onMouseDown={toggleList} >

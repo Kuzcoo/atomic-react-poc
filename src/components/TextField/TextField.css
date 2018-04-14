@@ -16,8 +16,7 @@
   border-color: #333;
 }
 
-.text-field__field:focus + .label,
-.text-field__field.is-active + .label {
+.text-field__field:focus + .label {
   transform: scale(0.8) translateY(-1.5em);
   color: #888;
 }
