@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import {Select} from '../Select/Select';
 import {TextField} from '../TextField/TextField';
 import {ComboBox} from '../ComboBox/ComboBox';
+import {keyNavList} from '../KeyNavList/KeyNavList';
 import './Form.css';
+
+const FruitSelect = keyNavList(Select);
+const CountryComboBox = keyNavList(ComboBox);
 
 const fruitList = [
   {id: 0, name: 'banana'},
@@ -35,15 +39,17 @@ export class Form extends Component {
       filteredCountries: countryList
     }
 
-    this.onChooseFruit = this.onChooseFruit.bind(this);
+    this.onChooseOption = this.onChooseOption.bind(this);
     this.onColorChange = this.onColorChange.bind(this);
     this.onCountryChange = this.onCountryChange.bind(this);
   }
 
-  onChooseFruit(name) {
-    this.setState({
-      fruit: name
-    });
+  onChooseOption(value) {
+    return name => {
+      this.setState({
+        [value]: name
+      })
+    };  
   }
 
   onColorChange(e) {
@@ -54,7 +60,9 @@ export class Form extends Component {
     });
   }
 
-  onCountryChange(value) {
+  onCountryChange(e) {
+    let value = e.target.value;
+
     this.setState({
       country: value,
       filteredCountries: this.filterByValue(value)
@@ -71,25 +79,29 @@ export class Form extends Component {
   render() {
     return (
       <form onSubmit={e => e.preventDefault()}>
+
         <TextField 
-          id='color-textfield' 
+          elementId='color-textfield' 
           className='form__country'
           value={this.state.color}
           label='Color'
           onChange={e => this.onColorChange(e)} />
-        <Select
+
+        <FruitSelect
           className='form__fruit'
+          label='Fruit'
           selectedValue={this.state.fruit}
-          onChooseOption={this.onChooseFruit}
+          onChooseOption={this.onChooseOption('fruit')}
           options={fruitList} />
 
-        <ComboBox 
+        <CountryComboBox 
           elementName='country-combo'
           label='Country'
           options={this.state.filteredCountries}
           value={this.state.country}
-          onFilterValue={this.onCountryChange}
-        />
+          onChange={e => this.onCountryChange(e)}
+          onChooseOption={this.onChooseOption('country')} />
+
       </form>
     );
   }

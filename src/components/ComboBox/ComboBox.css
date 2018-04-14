@@ -2,13 +2,10 @@
   max-width: 300px;
 }
 
-.combobox__list {
+.combobox .list {
   display: none;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
 }
 
-.combobox.is-open .combobox__list {
+.combobox.is-open .list {
   display: block;
 }

@@ -8,15 +8,7 @@
   width: 100%;
   border: none;
   border-bottom: 1px solid #999;
-}
-
-.text-field__label {
-  position: absolute;
-  left: 0.5em;
-  bottom: 0.5em;
-  transform: scale(1) translateY(1);
-  transform-origin: 0 0;
-  transition: transform 0.2s linear;
+  font-size: 1rem;
 }
 
 .text-field__field:focus {
@@ -24,7 +16,8 @@
   border-color: #333;
 }
 
-.text-field__field:focus + .text-field__label,
-.text-field__field.is-active + .text-field__label {
-  transform: scale(0.8) translateY(-1em);
+.text-field__field:focus + .label,
+.text-field__field.is-active + .label {
+  transform: scale(0.8) translateY(-1.5em);
+  color: #888;
 }

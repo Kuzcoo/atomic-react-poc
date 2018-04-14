@@ -8,3 +8,8 @@
 .list-item:last-child {
   border: none;
 }
+
+.list-item.is-focus,
+.list-item:hover {
+  background-color: #dedede;
+}

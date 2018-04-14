@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
+import {Label} from '../Label/Label';
 import './TextField.css';
 
-export function TextField({elementId, label, value, ...props}) {
+export function TextField({
+  elementId, 
+  className,
+  label, value,
+  onChange,
+  ...props
+}) {
   return (
-    <div className={'text-field' + ' ' + props.className}>
+    <div className={['text-field', className].join(' ')}>
       <input 
-        {...props}
         id={elementId} 
         className={'text-field__field' + (value === '' ? '' : ' is-active')}
         type='text'
-        value={value} />
-      <label htmlFor={elementId} className='text-field__label'>
-        {label}
-      </label>
+        value={value} 
+        onChange={onChange} 
+        {...props} />
+      <Label elementId={elementId} value={label} />
     </div>
   );
 }

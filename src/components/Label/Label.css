@@ -1,0 +1,8 @@
+.label {
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.5em;
+  transform: scale(1) translateY(1);
+  transform-origin: 0 0;
+  transition: transform 0.2s ease-in-out;
+}

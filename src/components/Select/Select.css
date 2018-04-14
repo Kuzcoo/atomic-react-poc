@@ -1,7 +1,7 @@
 .select {
   position: relative;
   max-width: 300px;
-}
+} 
 
 .select__toggle {
   padding: 0.5em;
@@ -25,17 +25,23 @@
   border-color: #333;
 }
 
-.select__list {
+.select .list {
   display: none;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
 }
 
-.select.is-open .select__list {
+.select.is-open .list {
   display: block;
 }
 
 .select.is-open .select__arrow {
   transform: rotate(180deg);
+}
+
+.select__label {
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  transform-origin: 0 0;
+  transform: scale(0.8) translateY(-1.5em);
+  color: #888;
 }
